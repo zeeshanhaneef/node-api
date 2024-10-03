@@ -4,6 +4,7 @@ const  customerRoute = require('./routes/customer')
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger');
 const verifyAuthorization = require('./middlewares/authMiddleware');
+const cacheMiddleware = require('./middlewares/cacheMiddleware');
 const cacheRoutes = require('./routes/cacheRoutes');  // Import cache routes
 
 const app = express();
@@ -13,8 +14,11 @@ const API_PREFIX = '/api';
 // Middleware to parse json body
 app.use(express.json());
 
-// Middleware to parse json body
+// Middleware to validate JWT token
 app.use(verifyAuthorization);
+
+// Middleware to redis-cache
+app.use(cacheMiddleware);
 
 // Use the cache routes
 app.use('/cache', cacheRoutes);  // Routes for Redis operations

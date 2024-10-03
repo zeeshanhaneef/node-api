@@ -66,7 +66,9 @@ router.get('/', (req, res) => {
  *                      $ref: '#/components/schemas/User'
  */
 router.get('/:id', (req, res) => {
-    res.json(utils.unifiedResponse({ id: req.params.id, name: `This is user: ${req.params.id} API` }))
+    setTimeout(() => {
+        res.json(utils.unifiedResponse({ id: req.params.id, name: `This is user: ${req.params.id} API` }))
+    }, 1000);
 })
 
 /**
