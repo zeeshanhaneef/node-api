@@ -7,6 +7,8 @@ const verifyAuthorization = require('./middlewares/authMiddleware');
 //const cacheMiddleware = require('./middlewares/cacheMiddleware');
 //const cacheRoutes = require('./routes/cacheRoutes');  // Import cache routes
 
+/// Something added to test the workflow
+
 const app = express();
 const port = 3000;
 const API_PREFIX = '/api';
